@@ -1,0 +1,22 @@
+
+.main {
+    width: 80%;
+    height: 50%;
+    background-color: rgb(194, 232, 138);
+    color: white;
+    margin-left: 10%;
+    margin-top: 4%;
+  }
+
+  .product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 25px;
+  }
+
+.detail{
+    margin: 20px;
+    color: white;
+    display: flex;
+}

@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-
+import InputForm from './Components/Input/InputForm';
+import Header from './Components/Header/Header';
+import OutputForm from './Output/OutputForm';
+import Cart from './Components/Cart/Cart';
+import ContextProvider from './Components/Store/ContextProvider';
 function App() {
+  const [data,setData] = useState([]);
+  const getDataHandler = (product) => {
+    setData((prevData) => [...prevData, { id: Date.now(), ...product }]);
+  };
+
+  console.log("APP",data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+    <Cart/>
+    <Header/>
+    <InputForm getData={getDataHandler}/>
+    <OutputForm productDetail={data}/>
+    </ContextProvider>
   );
 }
 
